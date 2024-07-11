@@ -16,10 +16,10 @@ const LoginScreen = ({ navigation }) => {
       await auth().signInWithEmailAndPassword(email, password);
       navigation.navigate('Task');
     } catch (error) {
-      if (error.code === 'auth/user-not-found') {
-        Alert.alert('No User Found', 'Please check your email address or register');
-      } else if (error.code === 'auth/wrong-password') {
-        Alert.alert('Incorrect Password', 'Please enter the correct password');
+      if (error.code === false) {
+        Alert.alert('Địa chỉ Email chưa chính xác','Xin hãy kiểm tra lại!');
+      } else if (error.code === false) {
+        Alert.alert('Mật khẩu chưa chính xác', 'Xin hãy kiểm tra lại!');
       } else {
         Alert.alert('Login Failed', error.message);
       }
